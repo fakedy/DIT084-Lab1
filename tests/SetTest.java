@@ -62,11 +62,23 @@ class SetTest {
         assert arr1.length == 0;
         assert arr2.length == 0;
 
+        set1.insert(1);
+        set1.intersect(set2);
+        arr1 = set1.toArray();
+        assert arr1.length == 0;
+
+        set1.insert(2);
+        set2.insert(2);
+        set1.intersect(set2);
+        assert set1.toArray().length == 1; // fails currently
 
 
     }
 
     @Test
     void distinctClosed() {
+        
+
+
     }
 }
