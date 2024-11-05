@@ -36,6 +36,10 @@ class SetTest {
         assert arr.length == 1;
         assert arr[0] == 1;
 
+        set.insert(-10);
+        assert set.member(-10);
+
+
     }
 
     @Test
@@ -65,7 +69,7 @@ class SetTest {
         set1.insert(1);
         set1.intersect(set2);
         arr1 = set1.toArray();
-        assert arr1.length == 0;
+        assert arr1.length == 0; // fails?
 
         set1.insert(2);
         set2.insert(2);
@@ -73,11 +77,15 @@ class SetTest {
         assert set1.toArray().length == 1; // fails currently
 
 
+
     }
 
     @Test
     void distinctClosed() {
-        
+
+        Set set1 = new Set();
+
+
 
 
     }
