@@ -17,6 +17,7 @@ public class Set {
   }
 
   public void insert(int x) {
+
     if(a.isEmpty()){
       a.add(x);
     }
@@ -24,14 +25,10 @@ public class Set {
       if (a.get(i) > x) {
         a.add(i, x);
         break;
-      } else {
-        if (a.get(i) == x) {
-          break;
-        } else {
-          a.add(x);
-        }
       }
     }
+    if(a.getLast() != x)
+    a.add(x);
   }
 
   public boolean member(int x) {
@@ -47,21 +44,25 @@ public class Set {
     return false;
   }
 
+
   public void intersect(Set s) {
+    if(a.getFirst() > s.a.getLast()){
+      a.clear();
+    }
     for(int i = 0, j = 0 ; i < a.size() && j < s.a.size();) {
-      if (a.get(i).equals(s.a.get(j))){
+      if (a.get(i).equals(s.a.get(j))) {
         i++;
         j++;
       } else {
-        if (a.get(i) < s.a.get(j)) {
+        if (a.get(i) < s.a.get(j)) { // makes sense
           a.remove(i);
         } else {
           j++;
         }
       }
     }
-
   }
+
 
   // Try with:
   //   (a, b) -> a + b;

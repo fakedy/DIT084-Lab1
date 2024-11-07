@@ -59,7 +59,9 @@ class SetTest {
         set.insert(1);
 
         set.insert(1);
-        assertEquals(1, set.toArray().length);
+        set.insert(3);
+        set.insert(3);
+        assertEquals(2, set.toArray().length);
     }
     @Test
     void insertShouldBeSorted(){
@@ -149,6 +151,19 @@ class SetTest {
 
         set2.insert(10);
         set2.insert(2);
+
+        set.intersect(set2);
+        assertEquals(1, set.toArray().length);
+
+        set = new Set();
+        set2 = new Set();
+        set.insert(3);
+        set.insert(5);
+        set.insert(7);
+
+        set2.insert(2);
+        set2.insert(4);
+        set2.insert(7);
 
         set.intersect(set2);
         assertEquals(1, set.toArray().length);
