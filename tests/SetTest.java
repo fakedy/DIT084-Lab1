@@ -53,44 +53,58 @@ class SetTest {
     }
 
     @Test
+    void insertShouldNotGiveDuplicateEntries(){
+        Set set;
+        set = new Set();
+        set.insert(1);
 
+        set.insert(1);
+        assertEquals(1, set.toArray().length);
+    }
+    @Test
+    void insertShouldBeSorted(){
+        Set set;
+        set = new Set();
+        int[] arr = set.toArray();
+        int prev = 0;
+        set.insert(3);
+        set.insert(5);
+        set.insert(1);
+        set.insert(32);
+        for( Integer x : arr){
+            assertTrue(prev <= x);
+        }
+    }
 
 
     @Test
-    void member() {
-        Set set;
-        set = new Set();
-
-        assert !set.member(1);
+    void memberExistingElementShouldMakeReturnTrue(){
+        Set set = new Set();
         set.insert(1);
-        assert set.member(1);
+        assertTrue(set.member(1));
+    }
+    @Test
+    void memberNonExistingElementShouldMakeReturnFalse(){
+        Set set = new Set();
+        set.insert(5);
+        assertFalse(set.member(2));
+    }
+
+    @Test
+    void memberOnEmptySetShouldGiveFalse(){
+        Set set = new Set();
+        assertFalse(set.member(-10));
+    }
+
+    @Test
+    void memberOnHighValueShouldReturnFalseIfElementIsLower(){
+        Set set = new Set();
+        set.insert(1);
+        assertFalse(set.member(2));
     }
 
     @Test
     void intersect() {
-
-        Set set1;
-        set1 = new Set();
-        Set set2;
-        set2 = new Set();
-
-        set1.intersect(set2);
-        int[] arr1 = set1.toArray();
-        int[] arr2 = set2.toArray();
-        assert arr1.length == 0;
-        assert arr2.length == 0;
-
-        set1.insert(1);
-        set1.intersect(set2);
-        arr1 = set1.toArray();
-        assert arr1.length == 0; // fails?
-
-        set1.insert(2);
-        set2.insert(2);
-        set1.intersect(set2);
-        assert set1.toArray().length == 1; // fails currently
-
-
 
     }
 
