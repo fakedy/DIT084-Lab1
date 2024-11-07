@@ -1,46 +1,60 @@
 import org.junit.jupiter.api.Test;
-
+import static org.junit.jupiter.api.Assertions.*;
 
 class SetTest {
 
 
-
     @Test
-    void toArray() {
+    void toArrayEmptySetShouldGiveEmptyArray(){
         Set set;
         int[] arr;
         set = new Set();
         arr = set.toArray();
-        assert arr != null;
-        assert arr.length == 0;
-
-        set.insert(1);
-        arr = set.toArray();
-        assert arr.length == 1;
-        assert arr[0] == 1;
-
-
-
+        assertEquals(0, arr.length);
 
     }
 
     @Test
-    void insert() {
+    void toArrayShouldNotBeNull(){
+        Set set;
+        int[] arr;
+        set = new Set();
+        arr = set.toArray();
+        assertNotEquals(null, arr);
+    }
+
+    @Test
+    void toArrayArrayWithOneElementShouldGiveArrayOfLengthOne(){
+        Set set;
+        int[] arr;
+        set = new Set();
+        set.insert(1);
+        arr = set.toArray();
+        assertEquals(1, arr.length);
+        assertEquals(1, arr[0]);
+    }
+
+
+    @Test
+    void insertOneElementShouldGiveLengthOne(){
+        Set set;
+        set = new Set();
+        set.insert(0);
+        assertEquals(1, set.toArray().length);
+    }
+
+    @Test
+    void insertSetAfterInsertShouldContainInsertedElement(){
         Set set;
         set = new Set();
 
         set.insert(1);
-        assert set.member(1);
-
-        int[] arr = set.toArray();
-        assert arr.length == 1;
-        assert arr[0] == 1;
-
-        set.insert(-10);
-        assert set.member(-10);
-
-
+        assertTrue(set.member(1));
     }
+
+    @Test
+
+
 
     @Test
     void member() {
