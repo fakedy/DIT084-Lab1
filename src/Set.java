@@ -17,6 +17,9 @@ public class Set {
   }
 
   public void insert(int x) {
+    if(a.isEmpty()){
+      a.add(x);
+    }
     for (int i = 0; i < a.size(); i++) {
       if (a.get(i) > x) {
         a.add(i, x);
@@ -24,10 +27,11 @@ public class Set {
       } else {
         if (a.get(i) == x) {
           break;
+        } else {
+          a.add(x);
         }
       }
     }
-    a.add(x);
   }
 
   public boolean member(int x) {
@@ -51,12 +55,12 @@ public class Set {
       } else {
         if (a.get(i) < s.a.get(j)) {
           a.remove(i);
-          i++;
         } else {
           j++;
         }
       }
     }
+
   }
 
   // Try with:

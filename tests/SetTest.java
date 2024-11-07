@@ -76,6 +76,18 @@ class SetTest {
         }
     }
 
+    @Test
+    void insertShouldInsertAllElements(){
+        Set set;
+        set = new Set();
+        set.insert(0);
+        set.insert(2);
+        set.insert(1);
+        assertTrue(set.member(0));
+        assertTrue(set.member(2));
+        assertTrue(set.member(1));
+    }
+
 
     @Test
     void memberExistingElementShouldMakeReturnTrue(){
@@ -88,6 +100,10 @@ class SetTest {
         Set set = new Set();
         set.insert(5);
         assertFalse(set.member(2));
+
+        set = new Set();
+        set.insert(1);
+        assertFalse(set.member(2));
     }
 
     @Test
@@ -96,17 +112,48 @@ class SetTest {
         assertFalse(set.member(-10));
     }
 
+
+
     @Test
-    void memberOnHighValueShouldReturnFalseIfElementIsLower(){
+    void intersectSameElementsShouldGiveNoChange() {
         Set set = new Set();
-        set.insert(1);
-        assertFalse(set.member(2));
+        Set set2 = new Set();
+
+        set.insert(2);
+        set2.insert(2);
+
+        set.intersect(set2);
+
+        assertTrue(set.member(2));
     }
+
+
 
     @Test
-    void intersect() {
+    void intersectNonSameElementsShouldRemoveNonIntersect(){
+        Set set = new Set();
+        Set set2 = new Set();
 
+        set.insert(1);
+        set.insert(2);
+
+        set2.insert(0);
+        set.intersect(set2);
+        assertEquals(0 ,set.toArray().length);
+
+        set = new Set();
+        set2 = new Set();
+
+        set.insert(0);
+        set.insert(2);
+
+        set2.insert(10);
+        set2.insert(2);
+
+        set.intersect(set2);
+        assertEquals(1, set.toArray().length);
     }
+
 
     @Test
     void distinctClosed() {
