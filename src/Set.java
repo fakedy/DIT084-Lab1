@@ -24,11 +24,11 @@ public class Set {
     }
     for (int i = 0; i < a.size(); i++) {
       if(a.get(i) == x){ // if element is already in the list we return
-        return;
+        break;
       }
       if (a.get(i) > x) { // if element is not in list and its bigger than element at index we insert it there
         a.add(i, x);
-        return;
+        break;
       }
     }
     if(a.getLast() < x) { // if the element is bigger than any but not in list

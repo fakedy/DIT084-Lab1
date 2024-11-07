@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SetTest {
@@ -91,7 +92,15 @@ class SetTest {
         assertTrue(set.member(2));
         assertTrue(set.member(1));
     }
-
+    @Test
+    void insertXIsLessOrEqualToLastElement(){
+        Set set;
+        set = new Set();
+        set.insert(1);
+        set.insert(3);
+        set.insert(5);
+        set.insert(4);
+    }
 
     @Test
     void memberExistingElementShouldMakeReturnTrue(){
@@ -136,6 +145,7 @@ class SetTest {
         Set set = new Set();
         Set set2 = new Set();
 
+        // set2 is bigger than set1
         set.insert(2);
         set.insert(3);
         set.insert(5);
@@ -152,6 +162,7 @@ class SetTest {
         set = new Set();
         set2 = new Set();
 
+        // same size
         set.insert(5);
         set.insert(8);
         set.insert(7);
@@ -179,12 +190,23 @@ class SetTest {
 
 
     @Test
-    void distinctClosed() {
+    void distinctClosedAdditionWith0ShouldReturnTrue() {
 
         Set set1 = new Set();
 
+        set1.insert(0);
+        set1.insert(5);
+        assertTrue(set1.distinctClosed((a,b) -> a+b));
 
+    }
+    @Test
+    void distinctClosedSubtractionWithNon0ShouldReturnFalse() {
 
+        Set set1 = new Set();
+
+        set1.insert(2);
+        set1.insert(5);
+        assertFalse(set1.distinctClosed((a,b) -> a-b));
 
     }
 }
