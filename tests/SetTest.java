@@ -57,11 +57,13 @@ class SetTest {
         Set set;
         set = new Set();
         set.insert(1);
-
         set.insert(1);
+        set.insert(2);
         set.insert(3);
+        set.insert(5);
         set.insert(3);
-        assertEquals(2, set.toArray().length);
+
+        assertEquals(4, set.toArray().length);
     }
     @Test
     void insertShouldBeSorted(){
@@ -129,8 +131,6 @@ class SetTest {
         assertTrue(set.member(2));
     }
 
-
-
     @Test
     void intersectNonSameElementsShouldRemoveNonIntersect(){
         Set set = new Set();
@@ -138,35 +138,29 @@ class SetTest {
 
         set.insert(1);
         set.insert(2);
-
-        set2.insert(0);
-        set.intersect(set2);
-        assertEquals(0 ,set.toArray().length);
-
-        set = new Set();
-        set2 = new Set();
-
-        set.insert(0);
-        set.insert(2);
-
-        set2.insert(10);
-        set2.insert(2);
-
-        set.intersect(set2);
-        assertEquals(1, set.toArray().length);
-
-        set = new Set();
-        set2 = new Set();
         set.insert(3);
         set.insert(5);
+        set.insert(3);
+
+        set2.insert(0);
+        set2.insert(1);
+        set.intersect(set2);
+        assertEquals(1 ,set.toArray().length);
+
+        set = new Set();
+        set2 = new Set();
+
+        set.insert(5);
+        set.insert(8);
         set.insert(7);
 
+        set2.insert(10);
+        set2.insert(5);
         set2.insert(2);
-        set2.insert(4);
-        set2.insert(7);
 
         set.intersect(set2);
         assertEquals(1, set.toArray().length);
+
     }
 
 

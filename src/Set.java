@@ -20,15 +20,20 @@ public class Set {
 
     if(a.isEmpty()){
       a.add(x);
+      return;
     }
     for (int i = 0; i < a.size(); i++) {
-      if (a.get(i) > x) {
+      if(a.get(i) == x){ // if element is already in the list we return
+        return;
+      }
+      if (a.get(i) > x) { // if element is not in list and its bigger than element at index we insert it there
         a.add(i, x);
-        break;
+        return;
       }
     }
-    if(a.getLast() != x)
-    a.add(x);
+    if(a.getLast() < x) { // if the element is bigger than any but not in list
+      a.add(x);
+    }
   }
 
   public boolean member(int x) {
@@ -46,21 +51,24 @@ public class Set {
 
 
   public void intersect(Set s) {
-    if(a.getFirst() > s.a.getLast()){
+
+    if(a.getFirst() > s.a.getLast()){ // if first element of a is bigger than s then there will be no intersection
       a.clear();
+      return;
     }
     for(int i = 0, j = 0 ; i < a.size() && j < s.a.size();) {
       if (a.get(i).equals(s.a.get(j))) {
         i++;
         j++;
       } else {
-        if (a.get(i) < s.a.get(j)) { // makes sense
+        if (a.get(i) < s.a.get(j)) {
           a.remove(i);
         } else {
           j++;
         }
       }
     }
+
   }
 
 
