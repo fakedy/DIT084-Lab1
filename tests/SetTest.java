@@ -136,16 +136,18 @@ class SetTest {
         Set set = new Set();
         Set set2 = new Set();
 
-        set.insert(1);
         set.insert(2);
         set.insert(3);
         set.insert(5);
-        set.insert(3);
+        set.insert(6);
+        set.insert(9);
 
-        set2.insert(0);
-        set2.insert(1);
+        set2.insert(2);
+        set2.insert(4);
+        set2.insert(6);
+        set2.insert(8);
         set.intersect(set2);
-        assertEquals(1 ,set.toArray().length);
+        assertEquals(2 ,set.toArray().length);
 
         set = new Set();
         set2 = new Set();
@@ -161,6 +163,18 @@ class SetTest {
         set.intersect(set2);
         assertEquals(1, set.toArray().length);
 
+    }
+
+    @Test
+    void intersectSet1FirstBiggerThanSet2Last(){
+        Set set = new Set();
+        Set set2 = new Set();
+        set.insert(10);
+        set.insert(4);
+
+        set2.insert(3);
+        set.intersect(set2);
+        assertEquals(0 ,set.toArray().length);
     }
 
 

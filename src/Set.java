@@ -56,7 +56,10 @@ public class Set {
       a.clear();
       return;
     }
-    for(int i = 0, j = 0 ; i < a.size() && j < s.a.size();) {
+
+    int i = 0;
+    int j = 0;
+    while(i < a.size() && j < s.a.size()) {
       if (a.get(i).equals(s.a.get(j))) {
         i++;
         j++;
@@ -68,6 +71,11 @@ public class Set {
         }
       }
     }
+    while( i != a.size()){
+      a.remove(i);
+    }
+
+
 
   }
 
