@@ -1,0 +1,32 @@
+public void setRequiredNumber(int nemployee, int starttime, int endtime)
+
+
+
+Input space:
+nemployee <= 0 (or: “nemployee” in { 0, ..., MAX_INT} ),
+starttime <= 0 (or: “starttime” in { 0, ..., MAX_INT} ),
+endtime <= 0 (or: “endtime” in { 0, …, MAX_INT} )
+
+Partitions:
+Partition #1: nemployee < 0 (or: “nemployee” in {MIN_INT, …, -1})
+	Test_partition1: input: “...”
+Partition #2: nemployee >= 0 (or: “nemployee” in {0, …, MAX_INT})
+	Test_partition1: input: “…”
+
+Partition #3: starttime < 0 (or: “starttime” in {MIN_INT, …, -1})
+	Test_partition1: input: “...”
+Partition #4: starttime >= 0 (or: “starttime” in {0, …, MAX_INT})
+	Test_partition1: input: “…”
+
+Partition #5: starttime > endtime (or: “starttime” in {endtime + 1, …, MAX_INT})
+	Test_partition1: input: “...” expected: "schedule is unchanged"
+Partition #6: starttime <= endtime (or: “starttime” in {0, …, endtime})
+	Test_partition1: input: “...” expected: "schedule is changed"
+
+
+
+
+Border cases:
+
+
+Found bugs:

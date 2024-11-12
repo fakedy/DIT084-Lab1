@@ -1,13 +1,22 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SetIntersectTest {
 
+
+    Set set;
+    Set set2;
+    @BeforeEach
+    void setUp(){
+        set = new Set();
+        set2 = new Set();
+    }
+
+
     @Test
     void intersectSameElementsShouldGiveNoChange() {
-        Set set = new Set();
-        Set set2 = new Set();
 
         set.insert(2);
         set2.insert(2);
@@ -18,9 +27,7 @@ public class SetIntersectTest {
     }
 
     @Test
-    void intersectNonSameElementsShouldRemoveNonIntersect(){
-        Set set = new Set();
-        Set set2 = new Set();
+    void intersectNonSameElementsShouldRemoveNonIntersect(){ // we should break this into 2 tests
 
         // set2 is bigger than set1
         set.insert(2);
@@ -55,8 +62,6 @@ public class SetIntersectTest {
 
     @Test
     void intersectSet1FirstBiggerThanSet2Last(){
-        Set set = new Set();
-        Set set2 = new Set();
         set.insert(10);
         set.insert(4);
 

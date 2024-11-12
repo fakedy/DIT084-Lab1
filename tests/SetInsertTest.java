@@ -1,15 +1,18 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SetInsertTest {
 
-
+    Set set;
+    @BeforeEach
+    void setUp(){
+        set = new Set();
+    }
 
     @Test
     void insertShouldNotGiveDuplicateEntries(){
-        Set set;
-        set = new Set();
         set.insert(1);
         set.insert(1);
         set.insert(2);
@@ -21,8 +24,6 @@ public class SetInsertTest {
     }
     @Test
     void insertShouldBeSorted(){
-        Set set;
-        set = new Set();
         int[] arr = set.toArray();
         int prev = 0;
         set.insert(3);
@@ -36,8 +37,6 @@ public class SetInsertTest {
 
     @Test
     void insertShouldInsertAllElements(){
-        Set set;
-        set = new Set();
         set.insert(0);
         set.insert(2);
         set.insert(1);
@@ -45,8 +44,6 @@ public class SetInsertTest {
     }
     @Test
     void insertXIsLessOrEqualToLastElement(){
-        Set set;
-        set = new Set();
         set.insert(1);
         set.insert(3);
         set.insert(5);
