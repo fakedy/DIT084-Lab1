@@ -1,5 +1,6 @@
-public void setRequiredNumber(int nemployee, int starttime, int endtime)
 
+
+public void setRequiredNumber(int nemployee, int starttime, int endtime)
 
 
 Input space:
@@ -8,25 +9,19 @@ starttime <= 0 (or: “starttime” in { 0, ..., MAX_INT} ),
 endtime <= 0 (or: “endtime” in { 0, …, MAX_INT} )
 
 Partitions:
-Partition #1: nemployee < 0 (or: “nemployee” in {MIN_INT, …, -1})
-	Test_partition1: input: “...”
-Partition #2: nemployee >= 0 (or: “nemployee” in {0, …, MAX_INT})
-	Test_partition1: input: “…”
 
-Partition #3: starttime < 0 (or: “starttime” in {MIN_INT, …, -1})
-	Test_partition1: input: “...”
-Partition #4: starttime >= 0 (or: “starttime” in {0, …, MAX_INT})
-	Test_partition1: input: “…”
+Partition #1: starttime > endtime (or: “starttime” in {endtime + 1, …, MAX_INT})
+	Test_partition1: input: “input: “nemployee = 6, starttime = 16, endtime = 12” expected: "schedule is unchanged"
 
-Partition #5: starttime > endtime (or: “starttime” in {endtime + 1, …, MAX_INT})
-	Test_partition1: input: “...” expected: "schedule is unchanged"
-Partition #6: starttime <= endtime (or: “starttime” in {0, …, endtime})
-	Test_partition1: input: “...” expected: "schedule is changed"
+Partition #2: starttime <= endtime (or: “starttime” in {0, …, endtime})
+	Test_partition1: input: “input: “nemployee = 20, starttime = 11, endtime = 15” expected: "workSchedule.readSchedule(11).requiredNumber = 20"
 
 
 
 
 Border cases:
+
+
 
 
 Found bugs:
