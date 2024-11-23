@@ -1,0 +1,13 @@
+
+-----Bugs-----
+Bug 1:
+Start date later than end date gives a negative difference in days
+Example: java Dates 10 1 2 1 should return 123 but we recieve -307 which is wrong
+
+Bug 2:
+one month difference result in wrong day difference
+Example: java Dates 1 1 2 1 should return 31 but returns 0
+
+Bug 3:
+valid input where start is before end date can return negative days
+Example: java Dates 4 6 5 10 return -89 should be 34
