@@ -1,3 +1,5 @@
+REPORT 3
+
 
 -----Bugs-----
 Bug 1:
@@ -11,3 +13,17 @@ Example: java Dates 1 1 2 1 should return 31 but returns 0
 Bug 3:
 valid input where start is before end date can return negative days
 Example: java Dates 4 6 5 10 return -89 should be 34
+
+
+-----Locals-----
+All local variables in main()
+Dates.main()
+someMonth: prob int variable
+someDay: prob int variable
+laterMonth: prob int variable
+laterDay: prob int variable
+someDayInYear: prob int variable
+laterDayInYear: prob int variable
+aMonth: : prob int variable
+
+
