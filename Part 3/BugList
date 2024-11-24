@@ -1,5 +1,6 @@
 REPORT 3
 
+3.1 Task 1: Probing around
 
 -----Bugs-----
 Bug 1:
@@ -15,6 +16,8 @@ valid input where start is before end date can return negative days
 Example: java Dates 4 6 5 10 return -89 should be 34
 
 
+3.2 Task 2: Put on debugging lens
+
 -----Locals-----
 All local variables in main()
 Dates.main()
@@ -25,5 +28,142 @@ laterDay: prob int variable
 someDayInYear: prob int variable
 laterDayInYear: prob int variable
 aMonth: : prob int variable
+daysBetween: prob int variable
+
+
+3.3 Task 3: Other method
+
+name and location of this method:
+Dates.daysInMonth(), line=13
+
+
+
+3.4 Task 4: Finding the bug(s?)
+
+
+run  Dates 1 1 2 1
+
+
+Step completed: "thread=main", Dates.main(), line=35 bci=44
+
+main[1] locals
+Method arguments:
+args = instance of java.lang.String[4] (id=542)
+Local variables:
+someMonth = 1
+someDay = 1
+laterMonth = 2
+laterDay = 1
+someDayInYear = 0
+laterDayInYear = 0
+aMonth = 0
+
+Step completed: "thread=main", Dates.daysInMonth(), line=13 bci=0
+
+main[1] locals
+Method arguments:
+month = 0 // SHOULDNT THIS BE MONTH 1 AND NOT 0?????
+Local variables:
+
+Step completed: "thread=main", Dates.main(), line=34 bci=54
+
+main[1] locals
+Method arguments:
+args = instance of java.lang.String[4] (id=542)
+Local variables:
+someMonth = 1
+someDay = 1
+laterMonth = 2
+laterDay = 1
+someDayInYear = 31 // RESULT FROM Dates.daysInMonth()
+laterDayInYear = 0
+aMonth = 0
+
+Step completed: "thread=main", Dates.main(), line=38 bci=63
+
+main[1] locals
+Method arguments:
+args = instance of java.lang.String[4] (id=542)
+Local variables:
+someMonth = 1
+someDay = 1
+laterMonth = 2
+laterDay = 1
+someDayInYear = 31
+laterDayInYear = 0
+aMonth = 1
+
+Step completed: "thread=main", Dates.daysInMonth(), line=13 bci=0
+
+main[1] locals
+Method arguments:
+month = 1 // THIS SHOULD BE MONTH 2
+Local variables:
+
+
+Step completed: "thread=main", Dates.main(), line=50 bci=131
+
+main[1] locals
+Method arguments:
+args = instance of java.lang.String[4] (id=542)
+Local variables:
+someMonth = 1
+someDay = 1
+laterMonth = 2
+laterDay = 1
+someDayInYear = 31
+laterDayInYear = 31 // THIS VALUE IS WRONG
+aMonth = 2
+daysBetween = 0
+
+
+SUMMARY FOR TEST CASE run  Dates 1 1 2 1
+
+The function Dates.daysInMonth() is given the wrong month, it appears to be off by one
+
+
+3.5 Task 5: Reconstruct a correct DatesImprove.java
+
+
+
+
+
+
+
+
+
+
+3.6 Task 6: Create your test suite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
