@@ -31,11 +31,11 @@ public static void main (String[] args) {
     int someDayInYear = 0;
     int laterDayInYear = 0;
 
-    for (aMonth = 1; aMonth < someMonth+1; aMonth = aMonth + 1) {
+    for (aMonth = 1; aMonth < someMonth; aMonth = aMonth + 1) {
         someDayInYear = someDayInYear + daysInMonth(aMonth);
     }
 
-    for (aMonth = 1; aMonth < laterMonth+1; aMonth = aMonth + 1) {
+    for (aMonth = 1; aMonth < laterMonth; aMonth = aMonth + 1) {
         laterDayInYear = laterDayInYear + daysInMonth(aMonth);
     }
 

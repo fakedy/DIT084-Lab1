@@ -117,10 +117,13 @@ aMonth = 2
 daysBetween = 0
 
 
-SUMMARY FOR TEST CASE run  Dates 1 1 2 1
 
-The function Dates.daysInMonth() is given the wrong month, it appears to be off by one
-
+The function Dates.daysInMonth() is given the wrong month, it appears to start at 0 which is not
+a valid month.
+This means it will check for days in month 0 instead of month 1.
+For some reason when calculating laterDayInYear it doesnt start from 0 but from the last
+argument to daysInMonth(), this gives wrong value
+We call this method at line=35 bci=44 and line=38 bci=63
 
 3.5 Task 5: Reconstruct a correct DatesImprove.java
 
