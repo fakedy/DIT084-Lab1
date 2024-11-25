@@ -8,20 +8,30 @@ nemployee <= 0 (or: “nemployee” in { 0, ..., MAX_INT} ),
 starttime <= 0 (or: “starttime” in { 0, ..., MAX_INT} ),
 endtime <= 0 (or: “endtime” in { 0, …, MAX_INT} )
 
-Partitions:
 
-Partition #1: starttime > endtime (or: “starttime” in {endtime + 1, …, MAX_INT})
+
+Block #1: starttime > endtime (or: “starttime” in {endtime + 1, …, MAX_INT})
 	Test_partition1: input: “input: “nemployee = 6, starttime = 16, endtime = 12” expected: "schedule is unchanged"
 
-Partition #2: starttime <= endtime (or: “starttime” in {0, …, endtime})
+Block #2: starttime <= endtime (or: “starttime” in {0, …, endtime})
 	Test_partition1: input: “input: “nemployee = 20, starttime = 11, endtime = 15” expected: "workSchedule.readSchedule(11).requiredNumber = 20"
-
-
-
 
 Border cases:
 
-
-
-
 Found bugs:
+
+
+
+
+public int nextIncomplete(int currenttime)
+ Input space/Partition:
+
+  Block #1:
+    test_m_part1:
+  Block #2:
+    test_m_part2:
+
+  Border cases:
+
+
+  Found bugs:
