@@ -44,102 +44,18 @@ Dates.daysInMonth(), line=13
 run  Dates 1 1 2 1
 
 
-Step completed: "thread=main", Dates.main(), line=35 bci=44
+The function Dates.daysInMonth() is given the wrong month.
+On someDayInYear (line 35) the argument first call of someDayInYear is 0 which is not valid month.
 
-main[1] locals
-Method arguments:
-args = instance of java.lang.String[4] (id=542)
-Local variables:
-someMonth = 1
-someDay = 1
-laterMonth = 2
-laterDay = 1
-someDayInYear = 0
-laterDayInYear = 0
-aMonth = 0
-
-Step completed: "thread=main", Dates.daysInMonth(), line=13 bci=0
-
-main[1] locals
-Method arguments:
-month = 0 // SHOULDNT THIS BE MONTH 1 AND NOT 0?????
-Local variables:
-
-Step completed: "thread=main", Dates.main(), line=34 bci=54
-
-main[1] locals
-Method arguments:
-args = instance of java.lang.String[4] (id=542)
-Local variables:
-someMonth = 1
-someDay = 1
-laterMonth = 2
-laterDay = 1
-someDayInYear = 31 // RESULT FROM Dates.daysInMonth()
-laterDayInYear = 0
-aMonth = 0
-
-Step completed: "thread=main", Dates.main(), line=38 bci=63
-
-main[1] locals
-Method arguments:
-args = instance of java.lang.String[4] (id=542)
-Local variables:
-someMonth = 1
-someDay = 1
-laterMonth = 2
-laterDay = 1
-someDayInYear = 31
-laterDayInYear = 0
-aMonth = 1
-
-Step completed: "thread=main", Dates.daysInMonth(), line=13 bci=0
-
-main[1] locals
-Method arguments:
-month = 1 // THIS SHOULD BE MONTH 2
-Local variables:
+For some reason when calculating laterDayInYear (line 38) the first argument to Dates.daysInMonth() is not 0 but the last
+argument to daysInMonth() which is not correct.
 
 
-Step completed: "thread=main", Dates.main(), line=50 bci=131
-
-main[1] locals
-Method arguments:
-args = instance of java.lang.String[4] (id=542)
-Local variables:
-someMonth = 1
-someDay = 1
-laterMonth = 2
-laterDay = 1
-someDayInYear = 31
-laterDayInYear = 31 // THIS VALUE IS WRONG
-aMonth = 2
-daysBetween = 0
+// write about Dates.daysInMonth() if statement having wrong conditions and not all conditions for dates
 
 
 
-The function Dates.daysInMonth() is given the wrong month, it appears to start at 0 which is not
-a valid month.
-This means it will check for days in month 0 instead of month 1.
-For some reason when calculating laterDayInYear it doesnt start from 0 but from the last
-argument to daysInMonth(), this gives wrong value
-We call this method at line=35 bci=44 and line=38 bci=63
-
-3.5 Task 5: Reconstruct a correct DatesImprove.java
-
-
-
-
-
-
-
-
-
-
-3.6 Task 6: Create your test suite
-
-
-
+// write about getting negative days when the latedate is earlier than the someDate
 
 
 
