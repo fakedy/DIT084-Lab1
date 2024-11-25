@@ -1,13 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-
-
-
 
 public class WorkScheduleTest {
 
@@ -63,6 +58,17 @@ public class WorkScheduleTest {
         assertEquals(20, workSchedule.readSchedule(11).requiredNumber);
 
     }
+
+    @Test
+    void setRequiredNumber() {
+
+    }
+
+    @Test
+    void nextIncomplete() {
+
+    }
+
 
 
 
