@@ -41,11 +41,9 @@ Dates.daysInMonth(), line=13
 3.4 Task 4: Finding the bug(s?)
 
 
-run  Dates 1 1 2 1
-
 
 The function Dates.daysInMonth() is given the wrong month.
-On someDayInYear (line 35) the argument first call of someDayInYear is 0 which is not valid month.
+On someDayInYear (line 35) the argument first call of daysInMonth is 0 which is not valid month.
 
 For some reason when calculating laterDayInYear (line 38) the first argument to Dates.daysInMonth() is not 0 but the last
 argument to daysInMonth() which is not correct.
@@ -53,9 +51,19 @@ argument to daysInMonth() which is not correct.
 
 // write about Dates.daysInMonth() if statement having wrong conditions and not all conditions for dates
 
+Dates.daysInMonth() (line:16)
+All these bugs are at (line:16)
+This is tested by setting endDate 1 month after startDate and then seeing what laterDayInYear is.
+for month 2 it returns 31 when it should return 28
+month 5 result in 31 when it should be 30
+month 7 result in 30 when it should be 31
 
 
-// write about getting negative days when the latedate is earlier than the someDate
+
+(Line:48)
+The result gets wrong if the start date is later than the end date. This is because we perform
+laterDayInYear - someDayInYear and there is no check whether the result is negative. If the result is negative
+it means that we should go to the next year.
 
 
 

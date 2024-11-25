@@ -7,6 +7,7 @@ class DatesImprove {
 
   /* Precondition: month is between 1 and 12, inclusive */
   /* Postcondition: returns the number of days in the given month */
+
 public static int daysInMonth (int month) {
     if(month == 2)
         return 28;
@@ -15,6 +16,9 @@ public static int daysInMonth (int month) {
   }
   else return 31;
 }
+
+
+
 public static void main (String[] args) {
     int someMonth, someDay;
     int laterMonth, laterDay;
@@ -46,6 +50,7 @@ public static void main (String[] args) {
                        laterMonth + "/" + laterDay + " is: ");
     daysBetween = laterDayInYear - someDayInYear;
     daysBetween = daysBetween + laterDay - someDay;
+
     if(daysBetween < 0){
         daysBetween = 365 + daysBetween;
     }
